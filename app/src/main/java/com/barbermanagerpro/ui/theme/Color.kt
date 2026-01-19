@@ -1,4 +1,4 @@
-package com.example.barbermanagerpro.ui.theme
+package com.barbermanagerpro.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

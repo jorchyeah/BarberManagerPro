@@ -1,4 +1,4 @@
-package com.example.barbermanagerpro.app
+package com.barbermanagerpro.app
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

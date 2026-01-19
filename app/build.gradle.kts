@@ -8,11 +8,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.barbermanagerpro"
-    compileSdk = 36
+    namespace = "com.barbermanagerpro"
+    compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.barbermanagerpro"
+        applicationId = "com.barbermanagerpro"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
@@ -37,8 +37,16 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+    kotlinOptions {
+        jvmTarget = "11"
+    }
     buildFeatures {
         compose = true
+    }
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
     }
 }
 
@@ -69,6 +77,7 @@ dependencies {
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.coroutines.android)
 
+    // Testing
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

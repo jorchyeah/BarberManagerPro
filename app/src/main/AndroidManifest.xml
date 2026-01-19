@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name=".BarberManagerApp"
+        android:name="com.barbermanagerpro.app.BarberManagerApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -18,9 +18,8 @@
         tools:targetApi="31">
 
         <activity
-            android:name=".app.MainActivity"
+            android:name="com.barbermanagerpro.app.MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
             android:theme="@style/Theme.BarberManagerPro">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
