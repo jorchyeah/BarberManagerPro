@@ -25,3 +25,12 @@ local.properties
 /app/build/generated/ksp/debug/java/hilt_aggregated_deps/_com_barbermanagerpro_feature_customer_presentation_addCustomer_AddCustomerViewModel_HiltModules_BindsModule.java
 /app/build/generated/ksp/debug/java/hilt_aggregated_deps/_com_barbermanagerpro_feature_customer_presentation_addCustomer_AddCustomerViewModel_HiltModules_KeyModule.java
 /app/build/generated/res/processDebugGoogleServices/values/values.xml
+/app/build/intermediates/classes/debugUnitTest/transformDebugUnitTestClassesWithAsm/dirs/com/barbermanagerpro/feature/customer/presentation/addCustomer/AddCustomerViewModelTest.class
+/app/build/tmp/kotlin-classes/debugUnitTest/com/barbermanagerpro/feature/customer/presentation/addCustomer/AddCustomerViewModelTest.class
+/app/build/reports/tests/testDebugUnitTest/classes/com.barbermanagerpro.ExampleUnitTest.html
+/app/build/reports/tests/testDebugUnitTest/classes/com.barbermanagerpro.feature.customer.presentation.addCustomer.AddCustomerViewModelTest.html
+/app/build/reports/tests/testDebugUnitTest/packages/com.barbermanagerpro.feature.customer.presentation.addCustomer.html
+/app/build/reports/tests/testDebugUnitTest/packages/com.barbermanagerpro.html
+/app/build/tmp/testDebugUnitTest/jar_extract_10800978300579896572_tmp
+/app/build/test-results/testDebugUnitTest/TEST-com.barbermanagerpro.ExampleUnitTest.xml
+/app/build/test-results/testDebugUnitTest/TEST-com.barbermanagerpro.feature.customer.presentation.addCustomer.AddCustomerViewModelTest.xml
