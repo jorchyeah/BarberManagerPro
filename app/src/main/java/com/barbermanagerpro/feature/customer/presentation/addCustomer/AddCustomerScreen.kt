@@ -25,10 +25,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.barbermanagerpro.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -40,7 +42,7 @@ fun AddCustomerScreen(
 
     Scaffold(
         topBar = {
-            CenterAlignedTopAppBar(title = { Text("Nuevo Cliente") })
+            CenterAlignedTopAppBar(title = { Text(stringResource(R.string.new_client)) })
         },
     ) { paddingValues ->
         AddCustomerContent(
@@ -79,7 +81,7 @@ fun AddCustomerContent(
         OutlinedTextField(
             value = state.firstName,
             onValueChange = onFirstNameChange,
-            label = { Text("Nombre") },
+            label = { Text(stringResource(R.string.customer_name)) },
             leadingIcon = { Icon(Icons.Default.Person, contentDescription = null) },
             modifier = Modifier.fillMaxWidth(),
         )
@@ -87,40 +89,43 @@ fun AddCustomerContent(
         OutlinedTextField(
             value = state.lastName,
             onValueChange = onLastNameChange,
-            label = { Text("Apellido") },
+            label = { Text(stringResource(R.string.customer_last_name)) },
             modifier = Modifier.fillMaxWidth(),
         )
 
         OutlinedTextField(
             value = state.phone,
             onValueChange = onPhoneChange,
-            label = { Text("Teléfono") },
+            label = { Text(stringResource(R.string.customer_phone)) },
             leadingIcon = { Icon(Icons.Default.Phone, contentDescription = null) },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
             modifier = Modifier.fillMaxWidth(),
         )
 
-        Text("Fecha de Nacimiento", style = MaterialTheme.typography.titleSmall)
+        Text(
+            stringResource(R.string.customer_birthdate),
+            style = MaterialTheme.typography.titleSmall,
+        )
 
         Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
             OutlinedTextField(
                 value = state.birthDay,
                 onValueChange = onDayChange,
-                label = { Text("Día") },
+                label = { Text(stringResource(R.string.day)) },
                 modifier = Modifier.weight(1f),
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
             )
             OutlinedTextField(
                 value = state.birthMonth,
                 onValueChange = onMonthChange,
-                label = { Text("Mes") },
+                label = { Text(stringResource(R.string.month)) },
                 modifier = Modifier.weight(1f),
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
             )
             OutlinedTextField(
                 value = state.birthYear,
                 onValueChange = onYearChange,
-                label = { Text("Año") },
+                label = { Text(stringResource(R.string.year)) },
                 modifier = Modifier.weight(1.5f),
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
             )
@@ -136,7 +141,7 @@ fun AddCustomerContent(
             if (state.isLoading) {
                 CircularProgressIndicator(color = MaterialTheme.colorScheme.onPrimary)
             } else {
-                Text("Guardar Cliente")
+                Text(stringResource(R.string.save_customer))
             }
         }
     }
@@ -146,7 +151,14 @@ fun AddCustomerContent(
 @Composable
 fun AddCustomerPreview() {
     AddCustomerContent(
-        state = AddCustomerState(firstName = "Jorge", phone = "555"),
+        state =
+            AddCustomerState(
+                firstName = stringResource(R.string.placeholder_customer_name),
+                phone =
+                    stringResource(
+                        R.string.placeholder_customer_phone,
+                    ),
+            ),
         onFirstNameChange = {},
         onLastNameChange = {},
         onPhoneChange = {},
