@@ -1,4 +1,4 @@
-package com.barbermanagerpro.feature.customer.presentation.add_customer
+package com.barbermanagerpro.feature.customer.presentation.addCustomer
 
 import com.barbermanagerpro.core.MainDispatcherRule
 import org.junit.Assert.assertEquals
@@ -8,7 +8,6 @@ import org.junit.Rule
 import org.junit.Test
 
 class AddCustomerViewModelTest {
-
     @get:Rule
     val mainDispatcherRule = MainDispatcherRule()
 

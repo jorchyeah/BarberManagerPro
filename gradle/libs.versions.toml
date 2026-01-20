@@ -18,6 +18,7 @@ coroutines = "1.9.0"
 coroutinesTest = "1.9.0"
 lifecycleViewModelCompose = "2.8.4"
 ktlintPlugin = "12.1.1"
+foundationLayout = "1.10.1"
 
 [libraries]
 # Core
@@ -58,6 +59,7 @@ junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutinesTest" }
+androidx-compose-foundation-layout = { group = "androidx.compose.foundation", name = "foundation-layout", version.ref = "foundationLayout" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
