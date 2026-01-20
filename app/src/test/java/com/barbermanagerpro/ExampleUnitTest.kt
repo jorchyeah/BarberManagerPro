@@ -1,4 +1,4 @@
-package com.example.barbermanagerpro
+package com.barbermanagerpro
 
 import org.junit.Test
 
