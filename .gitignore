@@ -13,3 +13,15 @@
 .externalNativeBuild
 .cxx
 local.properties
+/app/build/generated/ksp/debug/java/com/barbermanagerpro/app/BarberManagerApp_GeneratedInjector.java
+/app/build/generated/ksp/debug/java/com/barbermanagerpro/app/Hilt_MainActivity.java
+/app/build/generated/ksp/debug/java/com/barbermanagerpro/app/MainActivity_GeneratedInjector.java
+/app/build/generated/ksp/debug/java/com/barbermanagerpro/feature/customer/presentation/addCustomer/AddCustomerViewModel_Factory.java
+/app/build/generated/ksp/debug/java/com/barbermanagerpro/feature/customer/presentation/addCustomer/AddCustomerViewModel_HiltModules.java
+/app/build/generated/ksp/debug/java/com/barbermanagerpro/feature/customer/presentation/addCustomer/AddCustomerViewModel_HiltModules_KeyModule_ProvideFactory.java
+/app/build/generated/ksp/debug/java/dagger/hilt/internal/aggregatedroot/codegen/_com_barbermanagerpro_app_BarberManagerApp.java
+/app/build/generated/ksp/debug/java/hilt_aggregated_deps/_com_barbermanagerpro_app_BarberManagerApp_GeneratedInjector.java
+/app/build/generated/ksp/debug/java/hilt_aggregated_deps/_com_barbermanagerpro_app_MainActivity_GeneratedInjector.java
+/app/build/generated/ksp/debug/java/hilt_aggregated_deps/_com_barbermanagerpro_feature_customer_presentation_addCustomer_AddCustomerViewModel_HiltModules_BindsModule.java
+/app/build/generated/ksp/debug/java/hilt_aggregated_deps/_com_barbermanagerpro_feature_customer_presentation_addCustomer_AddCustomerViewModel_HiltModules_KeyModule.java
+/app/build/generated/res/processDebugGoogleServices/values/values.xml
