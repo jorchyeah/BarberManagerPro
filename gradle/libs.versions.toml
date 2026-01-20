@@ -10,10 +10,12 @@ activityCompose = "1.9.1"
 composeBom = "2024.09.00"
 ksp = "2.0.21-1.0.25"
 hilt = "2.51.1"
+hiltNavigationCompose = "1.2.0"
 navigationCompose = "2.8.0"
 firebaseBom = "33.1.2"
 googleServices = "4.4.2"
-coroutines = "1.8.1"
+coroutines = "1.9.0"
+coroutinesTest = "1.9.0"
 lifecycleViewModelCompose = "2.8.4"
 
 [libraries]
@@ -39,6 +41,7 @@ androidx-navigation-compose = { group = "androidx.navigation", name = "navigatio
 # Hilt & KSP
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
 
 # Firebase
 firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom" }
@@ -53,6 +56,7 @@ kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutinesTest" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
