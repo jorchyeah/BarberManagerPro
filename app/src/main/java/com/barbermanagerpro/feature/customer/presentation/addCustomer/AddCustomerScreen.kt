@@ -1,11 +1,26 @@
-package com.barbermanagerpro.feature.customer.presentation.add_customer
+package com.barbermanagerpro.feature.customer.presentation.addCustomer
 
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Phone
-import androidx.compose.material3.*
+import androidx.compose.material3.Button
+import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -19,14 +34,14 @@ import androidx.hilt.navigation.compose.hiltViewModel
 @Composable
 fun AddCustomerScreen(
     viewModel: AddCustomerViewModel = hiltViewModel(),
-    onNavigateBack: () -> Unit
+    onNavigateBack: () -> Unit,
 ) {
     val state by viewModel.state.collectAsState()
 
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(title = { Text("Nuevo Cliente") })
-        }
+        },
     ) { paddingValues ->
         AddCustomerContent(
             modifier = Modifier.padding(paddingValues),
@@ -37,7 +52,7 @@ fun AddCustomerScreen(
             onDayChange = viewModel::onBirthDayChange,
             onMonthChange = viewModel::onBirthMonthChange,
             onYearChange = viewModel::onBirthYearChange,
-            onSaveClick = viewModel::onSaveClick
+            onSaveClick = viewModel::onSaveClick,
         )
     }
 }
@@ -52,27 +67,28 @@ fun AddCustomerContent(
     onDayChange: (String) -> Unit,
     onMonthChange: (String) -> Unit,
     onYearChange: (String) -> Unit,
-    onSaveClick: () -> Unit
+    onSaveClick: () -> Unit,
 ) {
     Column(
-        modifier = modifier
-            .fillMaxSize()
-            .padding(16.dp),
-        verticalArrangement = Arrangement.spacedBy(16.dp)
+        modifier =
+            modifier
+                .fillMaxSize()
+                .padding(16.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp),
     ) {
         OutlinedTextField(
             value = state.firstName,
             onValueChange = onFirstNameChange,
             label = { Text("Nombre") },
             leadingIcon = { Icon(Icons.Default.Person, contentDescription = null) },
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
         )
 
         OutlinedTextField(
             value = state.lastName,
             onValueChange = onLastNameChange,
             label = { Text("Apellido") },
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
         )
 
         OutlinedTextField(
@@ -81,7 +97,7 @@ fun AddCustomerContent(
             label = { Text("Teléfono") },
             leadingIcon = { Icon(Icons.Default.Phone, contentDescription = null) },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
         )
 
         Text("Fecha de Nacimiento", style = MaterialTheme.typography.titleSmall)
@@ -92,21 +108,21 @@ fun AddCustomerContent(
                 onValueChange = onDayChange,
                 label = { Text("Día") },
                 modifier = Modifier.weight(1f),
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
             )
             OutlinedTextField(
                 value = state.birthMonth,
                 onValueChange = onMonthChange,
                 label = { Text("Mes") },
                 modifier = Modifier.weight(1f),
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
             )
             OutlinedTextField(
                 value = state.birthYear,
                 onValueChange = onYearChange,
                 label = { Text("Año") },
                 modifier = Modifier.weight(1.5f),
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
             )
         }
 
@@ -115,7 +131,7 @@ fun AddCustomerContent(
         Button(
             onClick = onSaveClick,
             modifier = Modifier.fillMaxWidth(),
-            enabled = !state.isLoading
+            enabled = !state.isLoading,
         ) {
             if (state.isLoading) {
                 CircularProgressIndicator(color = MaterialTheme.colorScheme.onPrimary)
@@ -137,6 +153,6 @@ fun AddCustomerPreview() {
         onDayChange = {},
         onMonthChange = {},
         onYearChange = {},
-        onSaveClick = {}
+        onSaveClick = {},
     )
 }

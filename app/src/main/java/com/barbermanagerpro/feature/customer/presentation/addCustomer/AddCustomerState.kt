@@ -1,4 +1,4 @@
-package com.barbermanagerpro.feature.customer.presentation.add_customer
+package com.barbermanagerpro.feature.customer.presentation.addCustomer
 
 data class AddCustomerState(
     val firstName: String = "",
@@ -8,8 +8,7 @@ data class AddCustomerState(
     val birthDay: String = "",
     val birthMonth: String = "",
     val birthYear: String = "",
-
     val isLoading: Boolean = false,
     val errorMessage: String? = null,
-    val isSuccess: Boolean = false
+    val isSuccess: Boolean = false,
 )

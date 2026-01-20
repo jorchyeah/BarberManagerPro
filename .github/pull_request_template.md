@@ -20,7 +20,7 @@ Closes # (ej: BARB-001)
 2. Ingresar X datos...
 3. Verificar que...
 
-## ✅ Checklist de Auto-revisión
+## Checklist de Auto-revisión
 - [ ] Mi código sigue el estilo del proyecto (Clean Architecture).
 - [ ] He realizado una auto-revisión de mi propio código.
-- [ ] He añadido pruebas unitarias 
+- [ ] He añadido pruebas unitarias

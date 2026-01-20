@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.barbermanagerpro.feature.customer.presentation.add_customer.AddCustomerScreen
+import com.barbermanagerpro.feature.customer.presentation.addCustomer.AddCustomerScreen
 import com.barbermanagerpro.ui.theme.BarberManagerProTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -16,7 +16,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             BarberManagerProTheme {
                 AddCustomerScreen(
-                    onNavigateBack = { /* TBD */ }
+                    onNavigateBack = { /* TBD */ },
                 )
             }
         }
