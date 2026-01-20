@@ -13,10 +13,10 @@ BarberManagerPro es una aplicación nativa de Android diseñada para digitalizar
 
 ## Screenshots
 
-| Registro de Cliente | Listado de Clientes | Panel de Estadísticas |
-|:-------------------:|:-------------------:|:---------------------:|
-| ![Add Customer](docs/screenshots/add_customer.png) | ![List](docs/screenshots/list_placeholder.png) | ![Stats](docs/screenshots/stats_placeholder.png) |
-| *Formulario con validación MVVM* | *Búsqueda en tiempo real* | *Métricas de retención* |
+|                Registro de Cliente                 |              Listado de Clientes               |              Panel de Estadísticas              |
+|:--------------------------------------------------:|:----------------------------------------------:|:-----------------------------------------------:|
+| ![Add Customer](docs/images/addCustomerScreen.png) | ![List](docs/screenshots/list_placeholder.png) | ![Stats](docs/screenshots/list_placeholder.png) |
+|          *Formulario con validación MVVM*          |           *Búsqueda en tiempo real*            |             *Métricas de retención*             |
 
 ---
 
