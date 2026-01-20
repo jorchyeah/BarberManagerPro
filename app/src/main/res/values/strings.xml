@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">BarberManagerPro</string>
+    //Add Customer Screen
+    <string name="save_customer">Guardar Cliente</string>
+    <string name="customer_phone">Teléfono</string>
+    <string name="customer_birthdate">Fecha de Nacimiento</string>
+    <string name="customer_last_name">Apellido</string>
+    <string name="customer_name">Nombre</string>
+    <string name="new_client">Nuevo Cliente</string>
+    <string name="day">Día</string>
+    <string name="month">Mes</string>
+    <string name="year">Año</string>
+    <string name="placeholder_customer_name">Jorge</string>
+    <string name="placeholder_customer_phone">555</string>
 </resources>

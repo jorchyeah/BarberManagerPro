@@ -19,12 +19,14 @@ coroutinesTest = "1.9.0"
 lifecycleViewModelCompose = "2.8.4"
 ktlintPlugin = "12.1.1"
 foundationLayout = "1.10.1"
+timber = "5.0.1"
 
 [libraries]
 # Core
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
 
 # Compose
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
