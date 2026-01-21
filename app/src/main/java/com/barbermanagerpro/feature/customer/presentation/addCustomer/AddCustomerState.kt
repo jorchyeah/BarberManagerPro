@@ -10,5 +10,5 @@ data class AddCustomerState(
     val birthYear: String = "",
     val isLoading: Boolean = false,
     val errorMessage: String? = null,
-    val isSuccess: Boolean = false,
+    val successMessage: String? = null,
 )

@@ -1,5 +1,6 @@
 package com.barbermanagerpro.feature.customer.presentation.addCustomer
 
+import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -13,34 +14,66 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.barbermanagerpro.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AddCustomerScreen(
     viewModel: AddCustomerViewModel = hiltViewModel(),
     onNavigateBack: () -> Unit,
+    customerId: String?,
 ) {
     val state by viewModel.state.collectAsState()
 
+    val context = LocalContext.current
+
+    LaunchedEffect(state.successMessage) {
+        state.successMessage?.let { message ->
+            Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+            onNavigateBack()
+        }
+    }
+
+    LaunchedEffect(state.errorMessage) {
+        state.errorMessage?.let { error ->
+            Toast.makeText(context, error, Toast.LENGTH_LONG).show()
+        }
+    }
+
     Scaffold(
         topBar = {
-            CenterAlignedTopAppBar(title = { Text("Nuevo Cliente") })
+            CenterAlignedTopAppBar(title = {
+                Text(
+                    if (customerId ==
+                        null
+                    ) {
+                        (stringResource(R.string.new_client))
+                    } else {
+                        (stringResource(R.string.edit_client))
+                    },
+                )
+            })
         },
     ) { paddingValues ->
         AddCustomerContent(
@@ -53,6 +86,8 @@ fun AddCustomerScreen(
             onMonthChange = viewModel::onBirthMonthChange,
             onYearChange = viewModel::onBirthYearChange,
             onSaveClick = viewModel::onSaveClick,
+            onDeleteClick = viewModel::onDeleteClick,
+            isEditing = customerId != null,
         )
     }
 }
@@ -68,6 +103,8 @@ fun AddCustomerContent(
     onMonthChange: (String) -> Unit,
     onYearChange: (String) -> Unit,
     onSaveClick: () -> Unit,
+    onDeleteClick: () -> Unit,
+    isEditing: Boolean,
 ) {
     Column(
         modifier =
@@ -79,7 +116,7 @@ fun AddCustomerContent(
         OutlinedTextField(
             value = state.firstName,
             onValueChange = onFirstNameChange,
-            label = { Text("Nombre") },
+            label = { Text(stringResource(R.string.customer_name)) },
             leadingIcon = { Icon(Icons.Default.Person, contentDescription = null) },
             modifier = Modifier.fillMaxWidth(),
         )
@@ -87,40 +124,43 @@ fun AddCustomerContent(
         OutlinedTextField(
             value = state.lastName,
             onValueChange = onLastNameChange,
-            label = { Text("Apellido") },
+            label = { Text(stringResource(R.string.customer_last_name)) },
             modifier = Modifier.fillMaxWidth(),
         )
 
         OutlinedTextField(
             value = state.phone,
             onValueChange = onPhoneChange,
-            label = { Text("Teléfono") },
+            label = { Text(stringResource(R.string.customer_phone)) },
             leadingIcon = { Icon(Icons.Default.Phone, contentDescription = null) },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
             modifier = Modifier.fillMaxWidth(),
         )
 
-        Text("Fecha de Nacimiento", style = MaterialTheme.typography.titleSmall)
+        Text(
+            stringResource(R.string.customer_birthdate),
+            style = MaterialTheme.typography.titleSmall,
+        )
 
         Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
             OutlinedTextField(
                 value = state.birthDay,
                 onValueChange = onDayChange,
-                label = { Text("Día") },
+                label = { Text(stringResource(R.string.day)) },
                 modifier = Modifier.weight(1f),
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
             )
             OutlinedTextField(
                 value = state.birthMonth,
                 onValueChange = onMonthChange,
-                label = { Text("Mes") },
+                label = { Text(stringResource(R.string.month)) },
                 modifier = Modifier.weight(1f),
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
             )
             OutlinedTextField(
                 value = state.birthYear,
                 onValueChange = onYearChange,
-                label = { Text("Año") },
+                label = { Text(stringResource(R.string.year)) },
                 modifier = Modifier.weight(1.5f),
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
             )
@@ -136,7 +176,28 @@ fun AddCustomerContent(
             if (state.isLoading) {
                 CircularProgressIndicator(color = MaterialTheme.colorScheme.onPrimary)
             } else {
-                Text("Guardar Cliente")
+                Text(
+                    if (isEditing) {
+                        stringResource(
+                            R.string.update_customer,
+                        )
+                    } else {
+                        stringResource(R.string.save_customer)
+                    },
+                )
+            }
+        }
+
+        if (isEditing) {
+            OutlinedButton(
+                onClick = onDeleteClick,
+                modifier = Modifier.fillMaxWidth(),
+                colors =
+                    ButtonDefaults.outlinedButtonColors(
+                        contentColor = MaterialTheme.colorScheme.error,
+                    ),
+            ) {
+                Text(stringResource(R.string.delete_customer))
             }
         }
     }
@@ -146,7 +207,14 @@ fun AddCustomerContent(
 @Composable
 fun AddCustomerPreview() {
     AddCustomerContent(
-        state = AddCustomerState(firstName = "Jorge", phone = "555"),
+        state =
+            AddCustomerState(
+                firstName = stringResource(R.string.placeholder_customer_name),
+                phone =
+                    stringResource(
+                        R.string.placeholder_customer_phone,
+                    ),
+            ),
         onFirstNameChange = {},
         onLastNameChange = {},
         onPhoneChange = {},
@@ -154,5 +222,7 @@ fun AddCustomerPreview() {
         onMonthChange = {},
         onYearChange = {},
         onSaveClick = {},
+        onDeleteClick = {},
+        isEditing = false,
     )
 }

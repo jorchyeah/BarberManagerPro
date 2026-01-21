@@ -1,3 +1,37 @@
 <resources>
     <string name="app_name">BarberManagerPro</string>
+    //Add Customer Screen
+    <string name="save_customer">Guardar Cliente</string>
+    <string name="customer_phone">Teléfono</string>
+    <string name="customer_birthdate">Fecha de Nacimiento</string>
+    <string name="customer_last_name">Apellido</string>
+    <string name="customer_name">Nombre</string>
+    <string name="new_client">Nuevo Cliente</string>
+    <string name="edit_client">Editar Cliente</string>
+    <string name="update_customer">Actualizar Cliente</string>
+    <string name="unknown_error">Error desconocido</string>
+    <string name="delete_error">Error al borrar</string>
+    <string name="delete_customer">Eliminar Cliente</string>
+    <string name="day">Día</string>
+    <string name="month">Mes</string>
+    <string name="year">Año</string>
+    <string name="placeholder_customer_name">Jorge</string>
+    <string name="placeholder_customer_phone">555</string>
+    <string name="save_customer_timeout">El guardado tardó demasiado. Revisa tu conexión.</string>
+    <string name="customer_not_found">Cliente no encontrado</string>
+    <string name="attempt_save_customer">Intentando guardar: %1$s</string>
+    <string name="info_required">Nombre y teléfono obligatorios</string>
+    //Customer List Screen
+    <string name="customer_saved_success">¡Cliente guardado con éxito!</string>
+    <string name="customer_deleted_success">Cliente eliminado correctamente</string>
+    <string name="customer_updated_success">Cliente actualizado correctamente</string>
+    <string name="my_customers">Mis Clientes</string>
+    <string name="add_client">Agregar Cliente</string>
+    <string name="error_message">Error: %1$s</string>
+    <string name="no_customers_message">No hay clientes aún.</string>
+    <string name="clear_search_message">Borrar búsqueda</string>
+    <string name="search_by_message">Buscar por nombre, teléfono…</string>
+    //Main Activity
+    <string name="go_to_add_customer_screen">Ir a agregar cliente</string>
+    <string name="click_on_customer_message">Click en cliente: %1$s</string>
 </resources>
