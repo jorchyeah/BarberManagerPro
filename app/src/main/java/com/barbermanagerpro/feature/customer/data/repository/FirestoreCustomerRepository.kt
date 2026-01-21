@@ -74,4 +74,30 @@ class FirestoreCustomerRepository
 
                 awaitClose { registration.remove() }
             }
+
+        override suspend fun getCustomerById(id: String): Customer? =
+            try {
+                val snapshot =
+                    firestore
+                        .collection(COLLECTION_CUSTOMERS)
+                        .document(id)
+                        .get()
+                        .await()
+
+                snapshot.toObject(Customer::class.java)?.copy(id = snapshot.id)
+            } catch (e: Exception) {
+                null
+            }
+
+        override suspend fun deleteCustomer(id: String): Result<Unit> =
+            try {
+                firestore
+                    .collection(COLLECTION_CUSTOMERS)
+                    .document(id)
+                    .delete()
+                    .await()
+                Result.success(Unit)
+            } catch (e: Exception) {
+                Result.failure(e)
+            }
     }

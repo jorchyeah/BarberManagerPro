@@ -7,7 +7,9 @@ sealed interface Screens {
     data object CustomerList : Screens
 
     @Serializable
-    data object AddCustomer : Screens
+    data class AddCustomer(
+        val customerId: String? = null,
+    ) : Screens
 
     // @Serializable
     // data class EditCustomer(val id: String) : Screen

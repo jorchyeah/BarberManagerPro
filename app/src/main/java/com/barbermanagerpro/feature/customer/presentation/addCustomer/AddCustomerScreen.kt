@@ -14,11 +14,13 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -40,21 +42,15 @@ import com.barbermanagerpro.R
 fun AddCustomerScreen(
     viewModel: AddCustomerViewModel = hiltViewModel(),
     onNavigateBack: () -> Unit,
+    customerId: String?,
 ) {
     val state by viewModel.state.collectAsState()
 
     val context = LocalContext.current
-    val customerSavedSuccessMessage = stringResource(R.string.customer_saved_success)
 
-    LaunchedEffect(state.isSuccess) {
-        if (state.isSuccess) {
-            Toast
-                .makeText(
-                    context,
-                    customerSavedSuccessMessage,
-                    Toast.LENGTH_SHORT,
-                ).show()
-
+    LaunchedEffect(state.successMessage) {
+        state.successMessage?.let { message ->
+            Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
             onNavigateBack()
         }
     }
@@ -67,7 +63,17 @@ fun AddCustomerScreen(
 
     Scaffold(
         topBar = {
-            CenterAlignedTopAppBar(title = { Text(stringResource(R.string.new_client)) })
+            CenterAlignedTopAppBar(title = {
+                Text(
+                    if (customerId ==
+                        null
+                    ) {
+                        (stringResource(R.string.new_client))
+                    } else {
+                        (stringResource(R.string.edit_client))
+                    },
+                )
+            })
         },
     ) { paddingValues ->
         AddCustomerContent(
@@ -80,6 +86,8 @@ fun AddCustomerScreen(
             onMonthChange = viewModel::onBirthMonthChange,
             onYearChange = viewModel::onBirthYearChange,
             onSaveClick = viewModel::onSaveClick,
+            onDeleteClick = viewModel::onDeleteClick,
+            isEditing = customerId != null,
         )
     }
 }
@@ -95,6 +103,8 @@ fun AddCustomerContent(
     onMonthChange: (String) -> Unit,
     onYearChange: (String) -> Unit,
     onSaveClick: () -> Unit,
+    onDeleteClick: () -> Unit,
+    isEditing: Boolean,
 ) {
     Column(
         modifier =
@@ -166,7 +176,28 @@ fun AddCustomerContent(
             if (state.isLoading) {
                 CircularProgressIndicator(color = MaterialTheme.colorScheme.onPrimary)
             } else {
-                Text(stringResource(R.string.save_customer))
+                Text(
+                    if (isEditing) {
+                        stringResource(
+                            R.string.update_customer,
+                        )
+                    } else {
+                        stringResource(R.string.save_customer)
+                    },
+                )
+            }
+        }
+
+        if (isEditing) {
+            OutlinedButton(
+                onClick = onDeleteClick,
+                modifier = Modifier.fillMaxWidth(),
+                colors =
+                    ButtonDefaults.outlinedButtonColors(
+                        contentColor = MaterialTheme.colorScheme.error,
+                    ),
+            ) {
+                Text(stringResource(R.string.delete_customer))
             }
         }
     }
@@ -191,5 +222,7 @@ fun AddCustomerPreview() {
         onMonthChange = {},
         onYearChange = {},
         onSaveClick = {},
+        onDeleteClick = {},
+        isEditing = false,
     )
 }
