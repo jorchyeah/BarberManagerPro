@@ -69,6 +69,7 @@ dependencies {
     // Hilt
     implementation(libs.hilt.android)
     implementation(libs.androidx.compose.foundation.layout)
+    implementation(libs.androidx.compose.runtime)
     ksp(libs.hilt.compiler)
 
     // Hilt + Navigation Compose
