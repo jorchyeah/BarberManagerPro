@@ -4,6 +4,7 @@ import com.barbermanagerpro.feature.customer.domain.model.Customer
 import com.barbermanagerpro.feature.customer.domain.repository.CustomerRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.update
 
 class FakeCustomerRepository : CustomerRepository {
     private val inMemoryDb = MutableStateFlow<List<Customer>>(emptyList())
@@ -28,7 +29,17 @@ class FakeCustomerRepository : CustomerRepository {
         return Result.success(Unit)
     }
 
-    fun getCustomers(): Flow<List<Customer>> = inMemoryDb
+    override fun getCustomers(): Flow<List<Customer>> = inMemoryDb
+
+    override suspend fun getCustomerById(id: String): Customer? =
+        inMemoryDb.value.find { it.id == id }
+
+    override suspend fun deleteCustomer(id: String): Result<Unit> {
+        inMemoryDb.update { currentList ->
+            currentList.filter { it.id != id }
+        }
+        return Result.success(Unit)
+    }
 
     fun clearDb() {
         inMemoryDb.value = emptyList()

@@ -31,7 +31,31 @@
     <string name="no_customers_message">No hay clientes aún.</string>
     <string name="clear_search_message">Borrar búsqueda</string>
     <string name="search_by_message">Buscar por nombre, teléfono…</string>
+    <string name="logout">Cerrar Sesión</string>
     //Main Activity
     <string name="go_to_add_customer_screen">Ir a agregar cliente</string>
     <string name="click_on_customer_message">Click en cliente: %1$s</string>
+    //Login Screen
+    <string name="null_user">Usuario nulo tras login</string>
+    <string name="null_token_error">Error: Token nulo</string>
+    <string name="google_error">Fallo Google: %1$d</string>
+    //FirestoreCustomerRepository
+    <string name="error_creating_user">Error al crear usuario</string>
+    <string name="error_login_in_user">Error logueando usuario</string>
+    //LoginViewModel
+    <string name="google_sign_in_cancelled">Inicio de sesión Google cancelado</string>
+    <string name="continue_with_google">Continuar con Google</string>
+    <string name="login_message">Inicia sesión para gestionar tu negocio</string>
+    <string name="unauthenticated_user">Usuario no autenticado</string>
+    <string name="fill_all_fields">Llena todos los campos</string>
+    <string name="mail_already_registered">Este correo ya está registrado</string>
+    <string name="authentication_error">Error de autenticación</string>
+    <string name="email">Correo electrónico</string>
+    <string name="password">Contraseña</string>
+    <string name="login">Entrar</string>
+    <string name="register">Registrarse</string>
+    <string name="social_media_option">O continúa con redes sociales</string>
+    <string name="no_account_linked">No existe una cuenta con este correo.</string>
+    <string name="incorrect_mail_password">Correo o contraseña incorrectos.</string>
+    <string name="conection_error">Error de conexión. Verifica tu internet.</string>
 </resources>

@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ExitToApp
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Person
@@ -50,13 +51,32 @@ fun CustomerListScreen(
     viewModel: CustomerListViewModel = hiltViewModel(),
     onFabClick: () -> Unit,
     onItemClick: (String) -> Unit,
+    onLogout: () -> Unit,
 ) {
     val state by viewModel.state.collectAsState()
     val searchText by viewModel.searchText.collectAsState()
 
     Scaffold(
         topBar = {
-            CenterAlignedTopAppBar(title = { Text(stringResource(R.string.my_customers)) })
+            CenterAlignedTopAppBar(
+                title = { Text(stringResource(R.string.my_customers)) },
+                actions = {
+                    IconButton(
+                        onClick = {
+                            viewModel.onLogoutClick()
+                            onLogout()
+                        },
+                    ) {
+                        Icon(
+                            Icons.AutoMirrored.Filled.ExitToApp,
+                            contentDescription =
+                                stringResource(
+                                    R.string.logout,
+                                ),
+                        )
+                    }
+                },
+            )
         },
         floatingActionButton = {
             FloatingActionButton(onClick = onFabClick) {

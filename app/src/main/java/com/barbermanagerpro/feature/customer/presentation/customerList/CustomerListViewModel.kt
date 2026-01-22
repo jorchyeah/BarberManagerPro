@@ -3,6 +3,7 @@ package com.barbermanagerpro.feature.customer.presentation.customerList
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.barbermanagerpro.feature.customer.domain.model.Customer
+import com.barbermanagerpro.feature.customer.domain.repository.AuthRepository
 import com.barbermanagerpro.feature.customer.domain.repository.CustomerRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -10,6 +11,7 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -17,6 +19,7 @@ class CustomerListViewModel
     @Inject
     constructor(
         repository: CustomerRepository,
+        private val authRepository: AuthRepository,
     ) : ViewModel() {
         private val _searchText = MutableStateFlow("")
         val searchText: StateFlow<String> = _searchText
@@ -41,6 +44,12 @@ class CustomerListViewModel
 
         fun onSearchTextChange(text: String) {
             _searchText.value = text
+        }
+
+        fun onLogoutClick() {
+            viewModelScope.launch {
+                authRepository.signOut()
+            }
         }
 
         private fun Customer.doesMatchSearchQuery(query: String): Boolean {
