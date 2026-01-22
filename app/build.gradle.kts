@@ -50,6 +50,11 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+        }
+    }
 }
 
 dependencies {
@@ -63,6 +68,9 @@ dependencies {
     implementation(libs.androidx.compose.material3)
     implementation(libs.timber)
     implementation(libs.kotlinx.serialization.json)
+    implementation(libs.firebase.auth)
+    implementation(libs.play.services.auth)
+    implementation(libs.androidx.material.icons.extended)
 
     // Navigation & ViewModel
     implementation(libs.androidx.navigation.compose)
@@ -72,6 +80,8 @@ dependencies {
     implementation(libs.hilt.android)
     implementation(libs.androidx.compose.foundation.layout)
     implementation(libs.androidx.compose.runtime)
+    implementation(libs.core.ktx)
+    implementation(libs.androidx.material3)
     ksp(libs.hilt.compiler)
 
     // Hilt + Navigation Compose
@@ -95,4 +105,9 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.mockk)
+    testImplementation(libs.kotlinx.coroutines.test)
+    androidTestImplementation(libs.mockk.android)
+    androidTestImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.robolectric)
 }

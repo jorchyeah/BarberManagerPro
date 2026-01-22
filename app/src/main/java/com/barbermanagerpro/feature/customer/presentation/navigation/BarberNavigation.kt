@@ -7,13 +7,14 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import com.barbermanagerpro.feature.customer.presentation.addCustomer.AddCustomerScreen
 import com.barbermanagerpro.feature.customer.presentation.customerList.CustomerListScreen
+import com.barbermanagerpro.feature.customer.presentation.login.LoginScreen
 
 @Composable
-fun BarberNavigation() {
+fun BarberNavigation(startDestination: Screens) {
     val navController = rememberNavController()
     NavHost(
         navController = navController,
-        startDestination = Screens.CustomerList,
+        startDestination = startDestination,
     ) {
         composable<Screens.CustomerList> {
             CustomerListScreen(
@@ -23,6 +24,11 @@ fun BarberNavigation() {
                 onItemClick = { customerId ->
                     navController.navigate(Screens.AddCustomer(customerId = customerId))
                 },
+                onLogout = {
+                    navController.navigate(Screens.Login) {
+                        popUpTo(0) { inclusive = true }
+                    }
+                },
             )
         }
 
@@ -31,6 +37,16 @@ fun BarberNavigation() {
             AddCustomerScreen(
                 customerId = args.customerId,
                 onNavigateBack = { navController.popBackStack() },
+            )
+        }
+
+        composable<Screens.Login> {
+            LoginScreen(
+                onLoginSuccess = {
+                    navController.navigate(Screens.CustomerList) {
+                        popUpTo(Screens.Login) { inclusive = true }
+                    }
+                },
             )
         }
     }

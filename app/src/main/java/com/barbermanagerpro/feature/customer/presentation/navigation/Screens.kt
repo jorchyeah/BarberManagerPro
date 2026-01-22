@@ -11,6 +11,9 @@ sealed interface Screens {
         val customerId: String? = null,
     ) : Screens
 
+    @Serializable
+    data object Login : Screens
+
     // @Serializable
     // data class EditCustomer(val id: String) : Screen
 }
