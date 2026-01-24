@@ -2,8 +2,8 @@ package com.barbermanagerpro.feature.customer.presentation.customerList
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.barbermanagerpro.feature.auth.domain.repository.AuthRepository
 import com.barbermanagerpro.feature.customer.domain.model.Customer
-import com.barbermanagerpro.feature.customer.domain.repository.AuthRepository
 import com.barbermanagerpro.feature.customer.domain.repository.CustomerRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

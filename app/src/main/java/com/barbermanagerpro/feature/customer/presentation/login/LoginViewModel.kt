@@ -4,8 +4,8 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.barbermanagerpro.R
+import com.barbermanagerpro.feature.auth.domain.repository.AuthRepository
 import com.barbermanagerpro.feature.customer.domain.model.User
-import com.barbermanagerpro.feature.customer.domain.repository.AuthRepository
 import com.google.firebase.FirebaseNetworkException
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthInvalidUserException

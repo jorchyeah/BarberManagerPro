@@ -1,4 +1,4 @@
-package com.barbermanagerpro.feature.customer.domain.repository
+package com.barbermanagerpro.feature.auth.domain.repository
 
 import com.barbermanagerpro.feature.customer.domain.model.User
 import kotlinx.coroutines.flow.Flow

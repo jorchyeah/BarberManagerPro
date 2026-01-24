@@ -10,7 +10,7 @@ import com.barbermanagerpro.feature.customer.domain.model.BirthDate
 import com.barbermanagerpro.feature.customer.domain.model.Customer
 import com.barbermanagerpro.feature.customer.domain.model.PersonalInfo
 import com.barbermanagerpro.feature.customer.domain.repository.CustomerRepository
-import com.barbermanagerpro.feature.customer.presentation.navigation.Screens
+import com.barbermanagerpro.presentation.navigation.Screens
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.MutableStateFlow

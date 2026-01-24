@@ -2,8 +2,8 @@ package com.barbermanagerpro.feature.auth.data.repository
 
 import android.content.Context
 import com.barbermanagerpro.R
+import com.barbermanagerpro.feature.auth.domain.repository.AuthRepository
 import com.barbermanagerpro.feature.customer.domain.model.User
-import com.barbermanagerpro.feature.customer.domain.repository.AuthRepository
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import dagger.hilt.android.qualifiers.ApplicationContext

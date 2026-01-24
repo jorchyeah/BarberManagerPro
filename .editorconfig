@@ -13,5 +13,5 @@ max_line_length = 100
 ij_kotlin_allow_trailing_comma = true
 ij_kotlin_allow_trailing_comma_on_call_site = true
 
-[**/{*Screen,*Content,*Component,*Item,*Theme,*Navigation}.kt]
+[**/{*Screen,*Content,*Component,*Item,*Theme,*Navigation,*Field}.kt]
 ktlint_standard_function-naming = disabled

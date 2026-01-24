@@ -1,4 +1,4 @@
-package com.barbermanagerpro.feature.customer.presentation.navigation
+package com.barbermanagerpro.presentation.navigation
 
 import kotlinx.serialization.Serializable
 
@@ -14,6 +14,6 @@ sealed interface Screens {
     @Serializable
     data object Login : Screens
 
-    // @Serializable
-    // data class EditCustomer(val id: String) : Screen
+    @Serializable
+    data object AddAppointment : Screens
 }
