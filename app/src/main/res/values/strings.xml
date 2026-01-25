@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">BarberManagerPro</string>
-    //Add Customer Screen
+    //Customer
     <string name="save_customer">Guardar Cliente</string>
     <string name="customer_phone">Teléfono</string>
     <string name="customer_birthdate">Fecha de Nacimiento</string>
@@ -21,7 +21,6 @@
     <string name="customer_not_found">Cliente no encontrado</string>
     <string name="attempt_save_customer">Intentando guardar: %1$s</string>
     <string name="info_required">Nombre y teléfono obligatorios</string>
-    //Customer List Screen
     <string name="customer_saved_success">¡Cliente guardado con éxito!</string>
     <string name="customer_deleted_success">Cliente eliminado correctamente</string>
     <string name="customer_updated_success">Cliente actualizado correctamente</string>
@@ -32,17 +31,15 @@
     <string name="clear_search_message">Borrar búsqueda</string>
     <string name="search_by_message">Buscar por nombre, teléfono…</string>
     <string name="logout">Cerrar Sesión</string>
-    //Main Activity
     <string name="go_to_add_customer_screen">Ir a agregar cliente</string>
     <string name="click_on_customer_message">Click en cliente: %1$s</string>
-    //Login Screen
+
+    //Login
     <string name="null_user">Usuario nulo tras login</string>
     <string name="null_token_error">Error: Token nulo</string>
     <string name="google_error">Fallo Google: %1$d</string>
-    //FirestoreCustomerRepository
     <string name="error_creating_user">Error al crear usuario</string>
     <string name="error_login_in_user">Error logueando usuario</string>
-    //LoginViewModel
     <string name="google_sign_in_cancelled">Inicio de sesión Google cancelado</string>
     <string name="continue_with_google">Continuar con Google</string>
     <string name="login_message">Inicia sesión para gestionar tu negocio</string>
@@ -58,4 +55,29 @@
     <string name="no_account_linked">No existe una cuenta con este correo.</string>
     <string name="incorrect_mail_password">Correo o contraseña incorrectos.</string>
     <string name="conection_error">Error de conexión. Verifica tu internet.</string>
+
+    //Agenda
+    <string name="no_name">Sin nombre</string>
+    <string name="no_calendars">No se encontraron calendarios o faltan permisos.</string>
+    <string name="event_creation_error">No se pudo crear el evento (URI nula)</string>
+    <string name="no_calendar_selected">No se ha seleccionado un calendario</string>
+    <string name="customer_name_required">Debes escribir el nombre del cliente</string>
+    <string name="appointment_creation_success">Cita agendada exitosamente</string>
+    <string name="new_appointment">Nueva Cita</string>
+    <string name="date">Fecha</string>
+    <string name="select_date">Seleccionar fecha</string>
+    <string name="select_hour">Seleccionar hora</string>
+    <string name="time">Hora</string>
+    <string name="notes">Notas (Opcional)</string>
+    <string name="add_appointment">Agendar Cita</string>
+    <string name="accept">Aceptar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="calendar_permissions_required">Se requieren permisos de Calendario</string>
+    <string name="select_calendar">Seleccionar Calendario</string>
+    <string name="save_in_calendar">Guardar en el Calendario</string>
+    <string name="unfold">Desplegar</string>
+    <string name="no_calendars_found">No se encontraron calendarios</string>
+    <string name="no_calendar_app_installed">No hay app de calendario instalada</string>
+    <string name="see_appointment">VER</string>
+    <string name="schedule_appointment">Agendar Cita</string>
 </resources>

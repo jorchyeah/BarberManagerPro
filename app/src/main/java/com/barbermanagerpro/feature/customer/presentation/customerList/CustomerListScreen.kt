@@ -12,10 +12,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ExitToApp
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Card
@@ -50,6 +52,7 @@ fun CustomerListScreen(
     viewModel: CustomerListViewModel = hiltViewModel(),
     onFabClick: () -> Unit,
     onItemClick: (String) -> Unit,
+    onScheduleClick: () -> Unit,
     onLogout: () -> Unit,
 ) {
     val state by viewModel.state.collectAsState()
@@ -60,6 +63,12 @@ fun CustomerListScreen(
             CenterAlignedTopAppBar(
                 title = { Text(stringResource(R.string.my_customers)) },
                 actions = {
+                    IconButton(onClick = onScheduleClick) {
+                        Icon(
+                            imageVector = Icons.Default.DateRange,
+                            contentDescription = stringResource(R.string.schedule_appointment),
+                        )
+                    }
                     IconButton(
                         onClick = {
                             viewModel.onLogoutClick()

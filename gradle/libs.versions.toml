@@ -22,10 +22,11 @@ foundationLayout = "1.10.1"
 timber = "5.0.1"
 runtime = "1.10.1"
 serializationJson = "1.7.3"
+material3 = "1.4.0"
+ui = "1.10.1"
 coreKtxVersion = "1.7.0"
 mockk = "1.13.12"
 robolectric = "4.14.1"
-material3 = "1.4.0"
 
 [libraries]
 # Core
@@ -37,7 +38,6 @@ kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-
 firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version = "22.3.1" } # O la versión que te sugiera AS
 play-services-auth = { group = "com.google.android.gms", name = "play-services-auth", version = "20.7.0" }
 robolectric = { group = "org.robolectric", name = "robolectric", version.ref = "robolectric" }
-androidx-material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended" }
 
 # Compose
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
@@ -46,6 +46,7 @@ androidx-compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graph
 androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended" }
 androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 
@@ -78,6 +79,7 @@ core-ktx = { group = "androidx.test", name = "core-ktx", version.ref = "coreKtxV
 mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 mockk-android = { group = "io.mockk", name = "mockk-android", version.ref = "mockk" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "material3" }
+androidx-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "ui" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

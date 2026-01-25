@@ -53,6 +53,7 @@ android {
     testOptions {
         unitTests {
             isIncludeAndroidResources = true
+            isReturnDefaultValues = true
         }
     }
 }
@@ -82,6 +83,7 @@ dependencies {
     implementation(libs.androidx.compose.runtime)
     implementation(libs.core.ktx)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.ui)
     ksp(libs.hilt.compiler)
 
     // Hilt + Navigation Compose

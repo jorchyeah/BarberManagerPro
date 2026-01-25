@@ -1,7 +1,7 @@
 package com.barbermanagerpro.di
 
 import com.barbermanagerpro.feature.auth.data.repository.FirebaseAuthRepository
-import com.barbermanagerpro.feature.customer.domain.repository.AuthRepository
+import com.barbermanagerpro.feature.auth.domain.repository.AuthRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

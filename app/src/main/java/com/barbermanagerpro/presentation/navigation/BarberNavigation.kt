@@ -1,14 +1,18 @@
-package com.barbermanagerpro.feature.customer.presentation.navigation
+package com.barbermanagerpro.presentation.navigation
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
+import com.barbermanagerpro.feature.agenda.presentation.AddAppointmentScreen
 import com.barbermanagerpro.feature.customer.presentation.addCustomer.AddCustomerScreen
 import com.barbermanagerpro.feature.customer.presentation.customerList.CustomerListScreen
 import com.barbermanagerpro.feature.customer.presentation.login.LoginScreen
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun BarberNavigation(startDestination: Screens) {
     val navController = rememberNavController()
@@ -23,6 +27,9 @@ fun BarberNavigation(startDestination: Screens) {
                 },
                 onItemClick = { customerId ->
                     navController.navigate(Screens.AddCustomer(customerId = customerId))
+                },
+                onScheduleClick = {
+                    navController.navigate(Screens.AddAppointment)
                 },
                 onLogout = {
                     navController.navigate(Screens.Login) {
@@ -47,6 +54,12 @@ fun BarberNavigation(startDestination: Screens) {
                         popUpTo(Screens.Login) { inclusive = true }
                     }
                 },
+            )
+        }
+
+        composable<Screens.AddAppointment> {
+            AddAppointmentScreen(
+                onNavigateBack = { navController.popBackStack() },
             )
         }
     }
